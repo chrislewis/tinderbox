@@ -37,6 +37,20 @@ trait Dispatch {
   
 }
 
+trait MappedDispatcher extends Dispatch {
+  
+  type WONG2 = Map[Symbol, String] => Unit
+  
+  val handlerMap: Map[Symbol, WONG2]
+  
+  override def handle(t: Tuple2[Symbol, Seq[Map[Symbol, String]]]): Unit = { 
+    handlerMap get(t._1) foreach {
+        handler => 
+        t._2.foreach(handler)
+    }
+  }
+}
+
 trait HrXmlExtractors extends Extractor {
   
   val employmentHistory: MX = Map(
@@ -62,22 +76,16 @@ trait HrXmlExtractors extends Extractor {
   
 }
 
-
-
-object h extends HrXmlExtractors with Handler with Dispatch {
+object h2 extends HrXmlExtractors with Handler with MappedDispatcher {
   
   def tryIt(xml: NodeSeq) = dispatch(apply(xml))
   
-  override def handle(t: Tuple2[Symbol, Seq[Map[Symbol, String]]]): Unit = t match {
-    case ('EducationHistory, h) => h foreach handleEducation
-    case _ => ()
-  }
-  
-  def handleEducation(edu: Map[Symbol, String]) =
+  val handleEducation = (edu: Map[Symbol, String]) =>
     edu foreach {
         case ('SchoolName, s) => println("school: " + s)
         case ('FAKE, s) => println("FAKE!: " + s)
         case _ => ()
     }
-  
+    
+  override val handlerMap: Map[Symbol, WONG2] = Map('EducationHistory -> handleEducation)
 }
