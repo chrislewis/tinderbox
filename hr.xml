@@ -1,0 +1,51 @@
+<root>
+	<EmploymentHistory>
+		<EmployerOrg>
+			<EmployerOrgName>Taleo</EmployerOrgName>
+			<PositionHistory>
+				<Title>nerd</Title>
+				<Description>get nerdy</Description>
+				<StartDate>yyyy-MM-dd</StartDate>
+				<EndDate>yyyy-MM-dd</EndDate>
+			</PositionHistory>
+		</EmployerOrg>
+		<EmployerOrg>
+			<EmployerOrgName>RL</EmployerOrgName>
+			<PositionHistory>
+				<Title>RL nerd</Title>
+				<Description>get nerdy</Description>
+				<StartDate>yyyy-MM-dd</StartDate>
+				<EndDate>yyyy-MM-dd</EndDate>
+			</PositionHistory>
+		</EmployerOrg>
+	</EmploymentHistory>
+	
+	<EducationHistory>
+		<SchoolOrInstitution>
+			<SchoolName>itt</SchoolName>
+			<DegreeMajor>
+				<Name></Name>
+			</DegreeMajor>
+			<Degree degreeType="masters"/>
+			<DatesOfAttendance>
+				<StartDate></StartDate>
+				<EndDate></EndDate>
+			</DatesOfAttendance>
+			<MeasureSystem></MeasureSystem>
+			<MeasureValue></MeasureValue>
+		</SchoolOrInstitution>
+		<SchoolOrInstitution>
+			<SchoolName>coa</SchoolName>
+			<DegreeMajor>
+				<Name></Name>
+			</DegreeMajor>
+			<Degree degreeType="masters"/>
+			<DatesOfAttendance>
+				<StartDate></StartDate>
+				<EndDate></EndDate>
+			</DatesOfAttendance>
+			<MeasureSystem></MeasureSystem>
+			<MeasureValue></MeasureValue>
+		</SchoolOrInstitution>
+	</EducationHistory>
+</root>
